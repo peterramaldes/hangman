@@ -20,4 +20,11 @@ defmodule DictionaryTest do
     game.letters
     |> Enum.each(fn letter -> assert letter =~ ~r/[a-z]/ end)
   end
+
+  # TODO: add test to verify if new_game received some number
+  # test "check each element is a letter" do
+  #   game = Game.new_game("1234")
+  #   game.letters
+  #   |> Enum.each(fn letter -> assert letter =~ ~r/[a-z]/ end)
+  # end
 end
