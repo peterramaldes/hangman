@@ -108,7 +108,7 @@ defmodule DictionaryTest do
       [ "j", :bad_guess,     3,  [ "_", "e", "_", "_", "o" ],  [ "a", "e", "i", "j", "o", "u" ] ],
       [ "k", :bad_guess,     2,  [ "_", "e", "_", "_", "o" ],  [ "a", "e", "i", "j", "k", "o", "u" ] ],
       [ "w", :bad_guess,     1,  [ "_", "e", "_", "_", "o" ],  [ "a", "e", "i", "j", "k", "o", "u", "w" ] ],
-      [ "z", :lost,          0,  [ "_", "e", "_", "_", "o" ],  [ "a", "e", "i", "j", "k", "o", "u", "w", "z" ] ],
+      [ "z", :lost,          0,  [ "h", "e", "l", "l", "o" ],  [ "a", "e", "i", "j", "k", "o", "u", "w", "z" ] ],
     ]
     |> test_sequence_of_moves()
   end

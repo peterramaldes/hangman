@@ -22,13 +22,10 @@ defmodule TextClient.Impl.Player do
 
   def interact({ game, tally }) do
     IO.puts(feedback_for(tally))
-    # Display current word
-    # Get next guess
-    # Make move
-    # interact()
+    IO.puts(current_word(tally))
+    Hangman.make_move(game, get_guess())
+    |> interact()
   end
-
-  # @type state :: :initializing | :good_guess | :bad_guess | :already_used
 
   defp feedback_for(tally = %{ game_state: :initializing }) do
     "Welcome! I'm thinking for a #{tally.letters |> length} letter word"
@@ -38,6 +35,23 @@ defmodule TextClient.Impl.Player do
   defp feedback_for(%{ game_state: :bad_guess }),  do: "Bad guess!"
   defp feedback_for(%{ game_state: :already_used }) do
     "You already used that letter"
+  end
+
+  defp current_word(tally) do
+    [ 
+      "\n\tWord so far: ", 
+      tally.letters |> Enum.join(" "),
+      "\n\tTurns left: ", 
+      tally.turns_left |> to_string,
+      "\n\tUsed so far: ", 
+      tally.used |> Enum.join(","),
+    ]
+  end
+
+  defp get_guess() do 
+    IO.gets("Next letter: ")  
+    |> String.trim()
+    |> String.downcase()
   end
 
 end
